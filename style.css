@@ -1,0 +1,126 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  font-family: montserrat;
+  width: 300px;
+  height: auto;
+  margin: 1rem;
+
+}
+
+h1{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#genDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px dotted black;
+}
+
+#clipboard {
+display: flex;
+flex-direction: row; 
+align-items: center;
+padding: 0.3rem 0.7rem;
+border: solid; 
+border-radius: 0.5rem;
+border-width: 0.09rem;
+}
+
+
+h4{
+  /* margin-bottom: 1rem; */
+  margin-right: 1rem;
+}
+
+#button-div {
+  position: relative;
+  display: inline-block;
+}
+
+#button-div #message {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#button-div #message::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+#button-div:hover #message {
+  visibility: visible;
+  opacity: 1;
+  font-family: montserrat;
+}
+
+#copy-button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+#copy-button:hover {
+  transition: 0.3s;
+}
+
+#img-button{
+    border: none;
+}
+
+img {
+  width: 1.5rem;
+  height: auto;
+}
+
+
+#color-display{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 255);
+}
+
+#button {
+  cursor: pointer;
+  font-family: montserrat;
+    background-color: #969696;
+    padding: 10px 10px;
+    border: none;
+    color: white; 
+    transition: 0.3s;
+    margin-bottom: 1rem;
+}
+
+#button:hover {
+    text-decoration: wavy underline;
+    background-color: black;
+    transition: 0.3s;
+    text-underline-offset: 0.2em;
+    font-size: 1em;
+}

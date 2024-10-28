@@ -11,14 +11,18 @@ function getColor() {
       )
         .then((response) => {
             if(!response.ok) throw new Error(`${response.status}`); 
-            return response.text(); 
+            return response.json(); 
         })
         .then((data) => {
             console.log(data); 
-            const genDiv = document.getElementById('genDiv');
-            const hexNum = document.getElementById('hex')
-            hexNum.textContent = data.hex
-            genDiv.appendChild(hexNum); 
+            // const genDiv = document.getElementById('genDiv');
+            // const hexData = document.createElement('h4'); 
+            // hexData.innerHTML = data.hex.value; 
+            const hexNum = document.getElementById('hex'); 
+            hexNum.textContent = data.hex.value; 
+            // hexNum.appendChild(hexNum); 
+            const colorDisplay = document.getElementById('color-display'); 
+            colorDisplay.style.backgroundColor = `${data.hex.value}`
         })
         .catch((error) => console.error('Fetch Error:', error)); 
 }
@@ -48,8 +52,35 @@ const randomColor = () => {
   return newColors.join(''); 
 }
 
+const colorButton = document.getElementById('button'); 
+colorButton.addEventListener('click', () => getColor()); 
 
-// console.log(randomColor()); 
-// console.log(randomColor()); 
-// console.log(randomColor()); 
-// console.log(randomColor()); 
+
+//copy button attributes
+const copyButton = document.getElementById('copy-button');
+copyButton.addEventListener('click', () => copyClip()); 
+copyButton.addEventListener('mouseout', () => hoverMessage()); 
+
+// changing the image button
+copyButton.addEventListener('mouseover', () => {
+    const darkImage = document.getElementById('img-button'); 
+    darkImage.src = 'copy-black.png'; 
+}); 
+copyButton.addEventListener('mouseout', () => {
+    const darkImage = document.getElementById('img-button'); 
+    darkImage.src = 'copy.png'; 
+}); 
+
+
+function copyClip() {
+    const copyText = document.getElementById("hex"); 
+    navigator.clipboard.writeText(copyText.textContent);
+    // alert("Copied the text: " + copyText.textContent);
+    const buttonDiv = document.getElementById("message");
+    buttonDiv.innerHTML = "Copied: " + copyText.textContent;
+}
+
+function hoverMessage() {
+    const messageDisplay = document.getElementById("message"); 
+    messageDisplay.innerHTML = "Copy to clipboard";
+}

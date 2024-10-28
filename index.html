@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Color Generator</title>
 </head>
 <body>
     <div id="genDiv">  
         <h1>Color Generator</h1>
-        <h4 id="hex"></h4>
-        <button>Give Me A New Color</button>
+        <div id="clipboard">
+            <h4 id="hex"></h4>
+            <div id="button-div">
+                <button id="copy-button"><span id="message">Copy to clipboard</span><img id="img-button" src="copy.png"></button>
+                <!-- <button id="copy-button" onclick="copyClip()" onmouseout="hoverMessage()"><span id="message">Copy to clipboard</span><img src="copy.png"></button> -->
+            </div>
+        </div>
+        <br>
+        <div id="color-display"></div>
+        <br>
+        <button id="button">Give Me A New Color!</button>
     </div>
     <script src="index.js"></script>
 </body>
