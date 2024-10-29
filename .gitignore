@@ -1,0 +1,11 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+node_modules/
+.vscode/
+Thumbs.db
+._*
+.Trashes
+.fseventsd
+.TemporaryItems
+.apdisk
