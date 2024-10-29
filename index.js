@@ -1,5 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-  getColor();
+//   const storedColors = localStorage.getItem('colors');
+  // if (storedColors) {
+  //   //if the colors are already stored, apply it the same way getColor() worked
+  //   const colors = JSON.parse(storedColors)
+  //   let swatch = "swatch"; 
+  //   let hex = "hex"; 
+  //   let swatchNum = 1;
+  //  for (const elem of colors) {
+  //     let concatSwatch = swatch + swatchNum; 
+  //       const colorSwatch = document.querySelector(`.${concatSwatch}`);
+  //       colorSwatch.style.backgroundColor = `${elem}`;
+  //       let concatHex = hex + swatchNum; 
+  //       const hexNum = document.querySelector(`.${concatSwatch}`);
+  //       hexNum.textContent = `${elem}`;
+  //       swatchNum++; 
+  //   }
+  // } 
+//   chrome.storage.local.get(["colors"]).then((result) => {
+//     if(result.colors) {
+
+//     } else {
+//         getColor()
+//     }
+
+//   });
+  getColor(); //otherwise randomize a new set of colors
 });
 
 // function getColor() {
@@ -28,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getColor() {
   fetch(
-    `https://www.thecolorapi.com/scheme?hex=${randomColor()}&mode=monochrome&count=6`,
+    `https://www.thecolorapi.com/scheme?hex=${randomColor()}&mode=analogic&count=6`,
     {
       headers: {
         Accept: 'application/json',
@@ -45,15 +70,8 @@ function getColor() {
       let swatch = "swatch"; 
       let hex = "hex"; 
       let swatchNum = 1; 
+      const array = [];
       for (const color of colors) {
-        // let divNum = 1
-        // const swatchNum = 'swatch'; 
-        // displayPalette(color, div);
-        // divNum++; 
-        // const newId = swatchNum += divNum; 
-        // const colorSwatches = document.getElementById('color-swatches');
-        // const colorDisplay = document.createElement('div');
-        // colorDisplay.id = 'swatch';
         let concatSwatch = swatch + swatchNum; 
         console.log(concatSwatch); 
         const colorSwatch = document.querySelector(`.${concatSwatch}`);
@@ -67,11 +85,14 @@ function getColor() {
         // colorSwatches.appendChild(colorDisplay);
         // const breakElem = document.createElement('br');
         // colorSwatches.appendChild(breakElem);
+        array.push(`${color.hex.value}`); 
+        console.log(array);
       }
       // const hexNum = document.getElementById('hex');
       // hexNum.textContent = data.hex.value;
       // const colorDisplay = document.getElementById('color-display');
       // colorDisplay.style.backgroundColor = `${data.hex.value}`
+    //   localStorage.setItem('colors',JSON.stringify(array))
     })
     .catch((error) => console.error('Fetch Error:', error));
 }
@@ -132,30 +153,33 @@ colorButton.addEventListener('click', () => {
 });
 
 /** COPY TO CLIPBOARD FUNCTION */
-// //copy button attributes
-// const copyButton = document.getElementById('copy-button');
-// copyButton.addEventListener('click', () => copyClip());
-// copyButton.addEventListener('mouseout', () => hoverMessage());
+//copy button attributes
+const copyButton = document.getElementById('copy-button');
+copyButton.addEventListener('click', () => copyClip());
+copyButton.addEventListener('mouseout', () => hoverMessage());
 
-// // changing the image button
-// copyButton.addEventListener('mouseover', () => {
-//     const darkImage = document.getElementById('img-button');
-//     darkImage.src = 'copy-black.png';
-// });
-// copyButton.addEventListener('mouseout', () => {
-//     const darkImage = document.getElementById('img-button');
-//     darkImage.src = 'copy.png';
-// });
+// changing the image button
+copyButton.addEventListener('mouseover', () => {
+    const darkImage = document.getElementById('img-button');
+    darkImage.src = 'copy-black.png';
+});
+copyButton.addEventListener('mouseout', () => {
+    const darkImage = document.getElementById('img-button');
+    darkImage.src = 'copy.png';
+});
 
-// function copyClip() {
-//     const copyText = document.getElementById("hex");
-//     navigator.clipboard.writeText(copyText.textContent);
-//     // alert("Copied the text: " + copyText.textContent);
-//     const buttonDiv = document.getElementById("message");
-//     buttonDiv.innerHTML = "Copied: " + copyText.textContent;
-// }
+function copyClip() {
+    const hexes = document.querySelectorAll(".hex1, .hex2, .hex3, .hex4, .hex5, .hex6");
+    const hexCodes = Array.from(hexes).map((elem) => elem.textContent).join("\n"); 
 
-// function hoverMessage() {
-//     const messageDisplay = document.getElementById("message");
-//     messageDisplay.innerHTML = "Copy to clipboard";
-// }
+    navigator.clipboard.writeText(hexCodes);
+    const buttonDiv = document.getElementById("message");
+    buttonDiv.innerHTML = "Copied!";
+}
+
+function hoverMessage() {
+    const messageDisplay = document.getElementById("message");
+    messageDisplay.innerHTML = "Copy to clipboard";
+}
+
+

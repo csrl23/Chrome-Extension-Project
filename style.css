@@ -38,70 +38,31 @@ h1{
   margin-inline: 1rem;
 }
 
-#color-swatches .swatch1{
+.swatch1, .swatch2, .swatch3, .swatch4, .swatch5, .swatch6 {
   width: 70px;
   height: 70px;
-  background-color: blue;
+  background-color: rgb(212, 200, 200);
   margin: 0.9rem;
 }
 
-#color-swatches .swatch2{
-  width: 70px;
-  height: 70px;
-  background-color: rgb(78, 78, 141);
-  margin: 0.9rem;
+.hex1, .hex2, .hex3, .hex4, .hex5, .hex6 {
+  text-align: center;
+  margin-top: 4.5rem;
 }
 
-#color-swatches .swatch3{
-  width: 70px;
-  height: 70px;
-  background-color: blue;
-  margin: 0.9rem;
-}
-
-#color-swatches .swatch4{
-  width: 70px;
-  height: 70px;
-  background-color: blue;
-  margin: 0.9rem;
-}
-
-#color-swatches .swatch5{
-  width: 70px;
-  height: 70px;
-  background-color: blue;
-  margin: 0.9rem;
-}
-
-#color-swatches .swatch6{
-  width: 70px;
-  height: 70px;
-  background-color: blue;
-  margin: 0.9rem;
-}
-
-#hexvalue {
- text-align: center;
-margin-top: 4.5rem;
-}
-
-#clipboard {
-display: flex;
+/* #clipboard { */
+/* display: flex;
 flex-direction: row; 
 align-items: center;
 padding: 0.3rem 0.7rem;
-border: solid; 
-border-radius: 0.5rem;
-border-width: 0.09rem;
-}
+/* border: solid;  */
+/* border-radius: 0.5rem;
+border-width: 0.09rem; */ 
+/* } */
 
-
-h4{
-  /* margin-bottom: 1rem; */
-  margin-right: 1rem;
-}
 
 #button-div {
+  margin-top: 1.5rem;
   position: relative;
   display: inline-block;
 }
