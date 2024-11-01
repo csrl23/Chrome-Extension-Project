@@ -1,5 +1,5 @@
-# Random Color Generator
-###  A simple Chrome extension that generates random colors in hexadecimal format with the click of a button.
+# Random Color Palette Generator
+###  A simple Chrome extension that generates random colors in hexadecimal format with the click of a button!
 
 #### Developed by <b><a href="https://github.com/csrl23">Cindy Rodríguez-Llivipuma</a></b> & <b><a href="https://github.com/sabrinaira">Sabrina Ira</a></b>
 ---
@@ -7,10 +7,10 @@ This browser extension tool provides an easy-to-use random color generator. User
 
 Features:
 -
-  - Single button interaction to randomize hexidecimal color
-  - Copy to clipboard - Allows users to be easily copy the hexidecimal code onto their clipboard for design and/ other projects.
-  - ColorAPI integration for accurate color information and display.
-  - Pure randomizing hexidecimal function to generate many different colors.
+  - **Single button** interaction to randomize hexidecimal colors
+  - **Copy to clipboard** - Allows users to be easily copy the hexidecimal code onto their clipboard for design and/ other projects.
+  - **ColorAPI** integration for accurate color information and display.
+  - **Pure randomizing hexidecimal function** to generate many different colors.
 
 
 Technologies Used
